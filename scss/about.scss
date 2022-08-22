@@ -1,0 +1,964 @@
+@import 'all';
+
+// 全區css
+:root {
+    // ===========電腦====
+
+    // title//
+    // 菱形 & 兩條線條 {
+
+    //菱形大小
+    --square-line-width: 0.8vw; //var(--square-line-width)
+
+    // 色塊顏色//
+    --line: #dcb17873; // var(--line)
+
+    //粗細 //
+    --line-height: 0.01vw; //var(--line-height)
+    // 長度
+    --line-top-width: 6vw; //var(--line-top-width)
+    --line-bottom-width: 8vw; //var(--line-bottom-width)
+
+    // }
+
+    // 六角菱形{
+    // 橫線 造&工  //直線 精&藝
+    --square_3D--line: 38%; //var(--square_3D--line)
+    // 線條動畫
+    --anm-duration--square_3D: 3.8s; //var(--anm-duration--square_3D)
+    // 線條動畫延遲
+    --anm-delay--square_3D: 0s; //var(--anm-delay--square_3D)
+    // }
+
+    // 字體陰影
+    --title-E--txt--p: 34px; //var(--title-E--txt--p)
+    --txt-shadow: 0.1em 0.1em 0.2em #000000d1; //var(--txt-shadow)
+    --min--txt--p: 8px; //var(--min--txt--p)
+
+    // ===========手機====
+
+    // 菱形線條 
+
+    //粗細 //
+    --cell-line-height: 0.3vw; //var(--cell-line-height)
+    --cell-line-top-width: 13vw; //var(--cell-line-top-width)
+    --cell-line-bottom-width: 20vw; //var(--cell-line-bottom-width)
+
+}
+
+//-- 標題 --
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: $white_color;
+}
+
+* {
+    padding: 0;
+    box-sizing: border-box;
+    // overflow-x: hidden;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.menu_box {
+    z-index: 999;
+}
+
+// ===========電腦版==============//
+
+.about {
+    background-image: url(../img/about/1x/banner1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    // width: 100vw;
+    // 檢查滿版
+    // height: 100vh;
+    display: flex;
+    flex-direction: column;
+    animation: mini 10s ease-out forwards;
+
+    @keyframes mini {
+        0% {
+            opacity: 0;
+            background-size: 130% auto;
+        }
+
+        30% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 1;
+            background-size: 100% auto;
+        }
+
+    }
+
+    .innerContainer::before {
+        content: " ";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: $content_bg_color;
+        opacity: 0;
+        transition: all 1s;
+        pointer-events: none;
+    }
+
+    .innerContainer {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        
+        //  col_1 第一卡大banner
+        .col_1 {
+            width: 100%;
+
+            // 咖啡色塊文字
+            .title_item {
+                width: 25vw;
+                background-color: $content_bg_color;
+                color: $gold_color;
+                // 讓畫面滿版
+                margin: 18.5vw auto;
+                margin-bottom: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                align-content: center;
+
+                .txt_box {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    p {
+                        color: $gold_color;
+                        margin-bottom: 0;
+                    }
+
+                    h1 {
+                        margin: 0;
+                        letter-spacing: 0.2vw;
+                        color: $gold_color;
+                        text-shadow: var(--txt-shadow);
+                        font-size: var(--title-E--txt--p);
+                        font-family: $en_font_family;
+                    }
+                }
+
+                // 設定區塊
+                .img_box {
+                    display: flex;
+                    justify-content: center;
+
+                    // 右邊線
+                    .line_box {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: flex-end;
+                        margin: 1vw;
+
+                        // 上線
+                        .line:nth-child(1) {
+                            width: var(--line-top-width);
+                            height: var(--line-height);
+                            background: var(--line);
+                            margin: 0 0 0.2vw 0;
+                        }
+
+                        // 下線
+                        .line:nth-child(2) {
+                            width: var(--line-bottom-width);
+                            height: var(--line-height);
+                            background: var(--line);
+                            top: 2vw;
+                        }
+                    }
+
+                    // 菱形
+                    .square {
+                        // 菱形大小
+                        padding: 1vw 0;
+                        width: var(--square-line-width);
+                    }
+
+                    // 左邊線
+                    .line_box:nth-child(3) {
+                        align-items: flex-start;
+                    }
+                }
+            }
+
+            // CLASSIC ART
+            .txt_item {
+                padding: 5% 0 0vw 4%;
+                position: relative;
+
+                svg {
+                    position: absolute;
+                    left: -3%;
+                    bottom: 20%;
+                    width: 22%;
+                    height: 91%;
+
+                    // 線圖 菱形
+                    .box {
+                        top: -33%;
+                        left: -0.5%;
+                    }
+
+                    // 第一圖 
+                    .box:nth-child(1) {
+                        position: absolute;
+                        transform: rotate(173deg);
+                        width: var(--square-line-width);
+                        transform-box: fill-box;
+                        transform-origin: center;
+                        animation: rotate 10s linear 4.5s infinite;
+
+                        @keyframes rotate {
+                            100% {
+                                transform: rotate(360deg);
+                            }
+                        }
+
+                        .square1 {
+                            stroke-dashoffset: 2000;
+                            stroke-dasharray: 2000;
+                            transform-box: fill-box;
+                            transform-origin: center;
+                            transform: rotate(43deg);
+                            animation: drawSquare 8s linear forwards;
+
+                            @keyframes drawSquare {
+                                0% {
+                                    stroke-dashoffset: 2000;
+                                    stroke-dasharray: 2000;
+                                }
+
+                                100% {
+                                    stroke-dashoffset: 0;
+                                }
+                            }
+                        }
+                    }
+
+                    // 第二圖 
+                    .box:nth-child(2) {
+                        position: absolute;
+                        transform: rotate(97deg);
+                        width: var(--square-line-width);
+                        // top: -35%;
+                        transform-box: fill-box;
+                        transform-origin: center;
+                        animation: rotate 20s linear 6s infinite;
+
+                        @keyframes rotate {
+                            100% {
+                                transform: rotate(360deg);
+                            }
+                        }
+
+                        .square2 {
+                            stroke-dashoffset: 2000;
+                            stroke-dasharray: 2000;
+                            transform-box: fill-box;
+                            transform-origin: center;
+                            transform: rotate(56deg);
+                            animation: drawSquare 8s linear 2s forwards;
+
+                            @keyframes drawSquare {
+                                0% {
+                                    stroke-dashoffset: 2000;
+                                    stroke-dasharray: 2000;
+                                }
+
+                                100% {
+                                    stroke-dashoffset: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // 文字
+                .txt_box {
+                    width: 40%;
+
+                    // 跟菱形對齊
+                    h2 {
+                        font-size: var(--title-E--txt--p);
+                        font-family: $en_font_family;
+                        color: $white_color;
+                        margin-left: 2.5vw;
+                        letter-spacing: 0.2vw;
+                        margin-bottom: 0;
+                        // 不夠長??
+
+                    }
+
+                    p {
+                        margin-left: 2.5vw;
+                    }
+                }
+
+            }
+        }
+
+        //  col_2 第2卡
+        .col_2 {
+            width: 100%;
+            background-color: $content_bg_color;
+            // 白樹定位
+            position: relative;
+
+            // 圖片
+            .img_item {
+                position: relative;
+
+                .img_box {
+                    width: 80vw;
+                    margin: 4vw auto;
+                    margin-bottom: 0;
+                }
+
+                // 追求美 是天生的 態度
+                .txt_box {
+                    position: absolute;
+                    top: 0;
+                    right: 11.5%;
+                    text-align: right;
+
+                    h3 {
+                        color: $white_color;
+                        font-family: "Noto Serif TC", serif;
+                        letter-spacing: 0.2vw;
+                        font-size: 1.76vw;
+                        font-weight: 400;
+                    }
+                }
+
+                #line {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 9;
+                }
+            }
+
+            // AESTHETIC LIFE
+            .txt_item {
+                width: 100%;
+                margin: 0 auto;
+                padding: 3vw 0;
+                // 兩個菱形對其
+                // position: relative;
+                // 菱形位子
+                position: relative;
+
+                .item {
+                    display: flex;
+                    align-items: center;
+                    padding: 0 13vw 2vw 13vw;
+
+                    // 線圖 菱形 --定位
+                    svg {
+                        position: absolute;
+                        left: 74px;
+                        bottom: 13%;
+                        width: 18%;
+                        height: 100%;
+
+
+                        // 第一圖 
+                        .box:nth-child(1) {
+                            position: absolute;
+                            transform: rotate(173deg);
+                            width: var(--square-line-width);
+                            transform-box: fill-box;
+                            transform-origin: center;
+                            animation: rotate 10s linear 4.5s infinite;
+
+                            @keyframes rotate {
+                                100% {
+                                    transform: rotate(360deg);
+                                }
+                            }
+
+                            .square1 {
+                                stroke-dashoffset: 2000;
+                                stroke-dasharray: 2000;
+                                transform-box: fill-box;
+                                transform-origin: center;
+                                transform: rotate(43deg);
+                                animation: drawSquare 8s linear forwards;
+
+                                @keyframes drawSquare {
+                                    0% {
+                                        stroke-dashoffset: 2000;
+                                        stroke-dasharray: 2000;
+                                    }
+
+                                    100% {
+                                        stroke-dashoffset: 0;
+                                    }
+                                }
+                            }
+                        }
+
+                        // 第二圖 
+                        .box:nth-child(2) {
+                            position: absolute;
+                            transform: rotate(97deg);
+                            width: var(--square-line-width);
+                            // top: -35%;
+                            transform-box: fill-box;
+                            transform-origin: center;
+                            animation: rotate 20s linear 6s infinite;
+
+                            @keyframes rotate {
+                                100% {
+                                    transform: rotate(360deg);
+                                }
+                            }
+
+                            .square2 {
+                                stroke-dashoffset: 2000;
+                                stroke-dasharray: 2000;
+                                transform-box: fill-box;
+                                transform-origin: center;
+                                transform: rotate(56deg);
+                                animation: drawSquare 8s linear 2s forwards;
+
+                                @keyframes drawSquare {
+                                    0% {
+                                        stroke-dashoffset: 2000;
+                                        stroke-dasharray: 2000;
+                                    }
+
+                                    100% {
+                                        stroke-dashoffset: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    // 英文文字
+                    .box {
+                        // margin-left: 2vw;
+
+                        // 跟菱形對齊
+                        h2 {
+                            letter-spacing: 0.2vw;
+                            margin-top: 4vw;
+                            font-size: var(--title-E--txt--p);
+                            font-family: $en_font_family;
+                            color: $white_color;
+
+                        }
+
+                        p {
+                            font-weight: $content_font_family;
+                        }
+                    }
+
+                    // 內文
+                    .txt_box {
+                        margin-left: 2vw;
+
+                        p {
+                            // font-size: var(--min--txt--p);
+                            font-size: $content_font_size;
+                        }
+                    }
+                }
+
+            }
+
+            .tree_img_box {
+                position: absolute;
+                width: 20vw;
+                right: 0;
+                bottom: -6vw;
+            }
+
+            .tree_img_box:nth-child(4) {
+                width: 12%;
+                right: 0%;
+                bottom: -13%;
+            }
+        }
+
+        // col_3 精工造藝
+        .col_3 {
+            width: 100%;
+            background-color: $content_bg_color;
+
+            .range {
+                display: flex;
+                // margin: 9vw 3vw;
+                margin: 12vw 3vw 0vw 3vw;
+
+                // 文字區 --CRIFT
+                .txt_item {
+                    width: 50%;
+                    margin: 0 auto;
+                    // 文字與菱形
+                    display: flex;
+                    margin: 13% 0 0 0;
+
+                    //菱形和內文對其
+                    .range_box {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        // 線圖 菱形 --定位
+                        position: relative;
+
+                        // 線圖 菱形 --定位 
+                        .item {
+                            display: flex;
+                            align-items: center;
+                            // 菱形位子
+                            // position: relative;
+                            // padding: 0 16vw 6vw;
+
+                            svg {
+                                position: absolute;
+                                left: 20%;
+                                bottom: 57%;
+                                width: 60%;
+                                height: 60%;
+
+
+                                // 第一圖 
+                                .box:nth-child(1) {
+                                    position: absolute;
+                                    transform: rotate(173deg);
+                                    width: var(--square-line-width);
+                                    transform-box: fill-box;
+                                    transform-origin: center;
+                                    animation: rotate 10s linear 4.5s infinite;
+
+                                    @keyframes rotate {
+                                        100% {
+                                            transform: rotate(360deg);
+                                        }
+                                    }
+
+                                    .square1 {
+                                        stroke-dashoffset: 2000;
+                                        stroke-dasharray: 2000;
+                                        transform-box: fill-box;
+                                        transform-origin: center;
+                                        transform: rotate(43deg);
+                                        animation: drawSquare 8s linear forwards;
+
+                                        @keyframes drawSquare {
+                                            0% {
+                                                stroke-dashoffset: 2000;
+                                                stroke-dasharray: 2000;
+                                            }
+
+                                            100% {
+                                                stroke-dashoffset: 0;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                // 第二圖 
+                                .box:nth-child(2) {
+                                    position: absolute;
+                                    transform: rotate(97deg);
+                                    width: var(--square-line-width);
+                                    // top: -35%;
+                                    transform-box: fill-box;
+                                    transform-origin: center;
+                                    animation: rotate 20s linear 6s infinite;
+
+                                    @keyframes rotate {
+                                        100% {
+                                            transform: rotate(360deg);
+                                        }
+                                    }
+
+                                    .square2 {
+                                        stroke-dashoffset: 2000;
+                                        stroke-dasharray: 2000;
+                                        transform-box: fill-box;
+                                        transform-origin: center;
+                                        transform: rotate(56deg);
+                                        animation: drawSquare 8s linear 2s forwards;
+
+                                        @keyframes drawSquare {
+                                            0% {
+                                                stroke-dashoffset: 2000;
+                                                stroke-dasharray: 2000;
+                                            }
+
+                                            100% {
+                                                stroke-dashoffset: 0;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            // 英文文字
+                            .box {
+                                // margin-left: 2vw;
+                                padding: 0 16vw 6vw;
+
+                                // 跟菱形對齊
+                                h2 {
+                                    letter-spacing: 0.2vw;
+                                    font-size: var(--title-E--txt--p);
+                                    margin-top: 4vw;
+                                    font-family: $en_font_family;
+                                    color: $white_color;
+
+                                }
+
+                                p {
+                                    font-weight: $content_font_family;
+                                }
+                            }
+                        }
+
+                        //內文
+                        .txt_box {
+                            margin: 0 2vw 5vw;
+                            width: 87%;
+
+                            P::nth-child(1) {
+                                margin-bottom: 10%;
+                            }
+                        }
+                    }
+                }
+
+                // 精工造藝
+                .img_item {
+                    width: 50%;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .range_box {
+                        padding: 22% 17%;
+                        position: relative;
+
+                        // 圖片 六角圖
+                        .img_box:nth-child(1) {
+                            width: 85%;
+                            margin: 0 auto;
+                            visibility: hidden
+                        }
+
+                        // 圖片 六角圖
+                        svg {
+                            position: absolute;
+                            top: 24%;
+                            left: 25.5%;
+                            width: 49%;
+
+                            .cls-2 {
+                                animation: move 3s linear 1;
+                            }
+
+                            @keyframes move {
+                                0% {
+                                    stroke-dasharray: 0, 1000px;
+                                }
+
+                                20% {
+                                    stroke-dasharray: 0, 1000px;
+                                }
+
+                                100% {
+                                    stroke-dasharray: 900px, 0;
+                                }
+                            }
+                        }
+
+
+                        //四個字
+                        // 共同部分//
+                        .ecma {
+                            position: absolute;
+                            text-align: center;
+
+                            h3:nth-child(1) {
+                                font-size: var(--title-E--txt--p);
+                                margin: 0;
+                                color: $gold_color;
+                                font-weight: 500;
+                                font-family: $title_font_family;
+                            }
+
+                            P:nth-child(2) {
+                                margin: 0;
+                                color: $gold_color;
+                                line-height: 1.5;
+                                margin-bottom: 15%;
+                                font-family: $en_font_family;
+                            }
+                        }
+
+                        // ======精
+                        // 分別設定//
+                        .g1 {
+                            position: absolute;
+                            top: 0;
+                            left: 40.5%;
+                        }
+
+                        .g1::after {
+                            content: "";
+                            position: absolute;
+                            display: block;
+                            left: 54%;
+                            bottom: -44%;
+                            background-color: $gold_color;
+                            width: 0.5%;
+                            height: var(--square_3D--line);
+                            animation: line_2 var(--anm-duration--square_3D) linear var(--anm-delay--square_3D) 1;
+
+                            @keyframes line_2 {
+                                0% {
+                                    opacity: 0;
+                                    height: 0;
+                                }
+
+                                80% {
+                                    opacity: 0;
+                                    height: 0;
+                                }
+
+                                100% {
+                                    opacity: 1;
+                                    height: 30%;
+                                }
+                            }
+                        }
+
+                        // ======工
+                        .g2 {
+                            position: absolute;
+                            top: 40%;
+                            right: 1%;
+
+                        }
+
+                        .g2::after {
+                            position: absolute;
+                            content: "";
+                            display: block;
+                            bottom: 0;
+                            left: 34%;
+                            background-color: $gold_color;
+                            width: var(--square_3D--line);
+                            height: 0.5%;
+                            animation: line_3 var(--anm-duration--square_3D) linear var(--anm-delay--square_3D) 1;
+
+                            @keyframes line_3 {
+                                0% {
+                                    opacity: 0;
+                                    width: 0%;
+                                }
+
+                                80% {
+                                    opacity: 0;
+                                    width: 0%;
+                                }
+
+                                100% {
+                                    opacity: 1;
+                                    width: var(--square_3D--line);
+                                }
+                            }
+
+
+                        }
+
+                        // ======造
+                        .g3 {
+                            position: absolute;
+                            top: 40%;
+                            left: -4%;
+                        }
+
+                        .g3::after {
+                            position: absolute;
+                            content: "";
+                            display: block;
+                            bottom: 0;
+                            right: 34%;
+                            background-color: $gold_color;
+                            width: var(--square_3D--line);
+                            height: 0.5%;
+                            animation: line_4 var(--anm-duration--square_3D) linear var(--anm-delay--square_3D) 1;
+
+                            @keyframes line_4 {
+                                0% {
+                                    opacity: 0;
+                                    width: 0%;
+                                }
+
+                                80% {
+                                    opacity: 0;
+                                    width: 0%;
+                                }
+
+                                100% {
+                                    opacity: 1;
+                                    width: var(--square_3D--line);
+                                }
+                            }
+                        }
+
+                        // ======藝
+                        .g4 {
+                            position: absolute;
+                            bottom: 0;
+                            left: 47%;
+                        }
+
+                        .g4::after {
+                            content: "";
+                            position: absolute;
+                            display: block;
+                            left: 46%;
+                            // bottom: 100%;
+                            top: -45%;
+                            background-color: $gold_color;
+                            width: 0.5%;
+                            // height: 30%;
+                            height: var(--square_3D--line);
+                            animation: line_5 var(--anm-duration--square_3D) linear var(--anm-delay--square_3D) 1;
+
+                            @keyframes line_5 {
+                                0% {
+                                    opacity: 0;
+                                    height: 0;
+                                }
+
+                                80% {
+                                    opacity: 0;
+                                    height: 0;
+                                }
+
+                                100% {
+                                    opacity: 1;
+                                    height: 30%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ===========手機版==============//
+// @media screen and (max-width:768px) {
+//     .about {
+
+//         // col_1 第一卡大banner
+//         .col_1 {
+//             // 暫時用記得拿掉調畫面
+//             // height: 100vh;
+
+//             // 咖啡色塊文字
+//             .txt_box:nth-child(1) {
+//                 width: 60vw;
+//                 // 讓畫面滿版
+//                 margin: 74vw auto;
+
+//                 // 菱形區塊
+//                 .square_line_box {
+//                     margin: 1vw 0;
+
+//                     // 右邊線
+//                     .box {
+
+//                         // 上線
+//                         .line:nth-child(1) {
+//                             width: var(--cell-line-top-width);
+//                             height: var(--cell-line-height);
+//                         }
+
+//                         // 下線
+//                         .line:nth-child(2) {
+//                             width: var(--cell-line-bottom-width);
+//                             height: var(--cell-line-height);
+//                         }
+//                     }
+//                 }
+//             }
+
+//             // CLASSIC ART
+//             .txt_box:nth-child(2) {
+//                 margin-bottom: 2vw;
+
+//                 // 線圖 菱形
+//                 .img_box {
+
+//                     // 第一圖
+//                     .box:nth-child(1) {
+//                         top: -9vw;
+//                         right: 19vw;
+
+//                     }
+
+//                     // 第二圖 
+//                     .box:nth-child(2) {
+//                         right: 19vw;
+//                         top: -9vw;
+//                     }
+
+//                 }
+
+//                 // 文字
+//                 .box {
+
+//                     // 跟菱形對齊
+//                     h1 {
+//                         font-size: var(--line-top-width);
+//                         margin-left: 6.5vw;
+//                     }
+
+//                     p {
+//                         font-size: 12px;
+//                         margin-left: 6.5vw;
+//                     }
+//                 }
+//             }
+//         }
+
+//     }
+// }

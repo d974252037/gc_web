@@ -21,23 +21,31 @@ p {
 }
 
 .menu_box {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
   padding: 2vw 5vw;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .menu_box .logo_box img {
   width: 165px;
 }
 .menu_box .list_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .menu_box .list_box a.ch_text {
   color: #fff;
-  -ms-writing-mode: tb;
-      writing-mode: tb;
+  -webkit-writing-mode: tb;
+      -ms-writing-mode: tb;
+          writing-mode: tb;
   font-size: 18px;
   letter-spacing: 0.3vw;
   text-decoration: none;
@@ -48,8 +56,9 @@ p {
 .menu_box .list_box a.ch_text .en_text {
   font-family: monospace;
   color: #fff;
-  -ms-writing-mode: tb;
-      writing-mode: tb;
+  -webkit-writing-mode: tb;
+      -ms-writing-mode: tb;
+          writing-mode: tb;
   font-size: 12px;
   letter-spacing: 0.1vw;
   font-weight: 200;
@@ -134,4 +143,4 @@ footer span {
   letter-spacing: 2px;
   padding: 0 10px;
   font-size: 15px;
-}
+}/*# sourceMappingURL=all.css.map */

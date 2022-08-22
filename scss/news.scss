@@ -1,0 +1,300 @@
+@import 'all';
+
+// 全區css
+:root {
+    // ===========電腦====
+
+    // title//
+    // 菱形 & 兩條線條 {
+
+    //菱形大小
+    --square-line-width: 0.8vw; //var(--square-line-width)
+
+    // 色塊顏色//
+    --line: #dcb17873; // var(--line)
+
+    //粗細 //
+    --line-height: 0.01vw; //var(--line-height)
+    // 長度
+    --line-top-width: 6vw; //var(--line-top-width)
+    --line-bottom-width: 8vw; //var(--line-bottom-width)
+
+    // }
+
+    // 六角菱形{
+    // 橫線 造&工  //直線 精&藝
+    --square_3D--line: 38%; //var(--square_3D--line)
+    // 線條動畫
+    --anm-duration--square_3D: 3.8s; //var(--anm-duration--square_3D)
+    // 線條動畫延遲
+    --anm-delay--square_3D: 0s; //var(--anm-delay--square_3D)
+    // }
+
+    // 字體陰影
+    --title-E--txt--p: 34px; //var(--title-E--txt--p)
+    --txt-shadow: 0.1em 0.1em 0.2em #000000d1; //var(--txt-shadow)
+    --min--txt--p: 8px; //var(--min--txt--p)
+
+    // ===========手機====
+
+    // 菱形線條 
+
+    //粗細 //
+    --cell-line-height: 0.3vw; //var(--cell-line-height)
+    --cell-line-top-width: 13vw; //var(--cell-line-top-width)
+    --cell-line-bottom-width: 20vw; //var(--cell-line-bottom-width)
+
+}
+
+//-- 標題 --
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: $white_color;
+}
+
+* {
+    padding: 0;
+    box-sizing: border-box;
+    // overflow-x: hidden;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+.menu_box {
+    z-index: 999;
+}
+// ===========電腦版==============//
+.news{
+    background-image: url(../img/news/1x/banner.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    animation: mini 10s ease-out forwards;
+    @keyframes mini {
+        0% {
+            opacity: 0;
+            background-size: 130% auto;
+        }
+
+        30% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 1;
+            background-size: 100% auto;
+        }
+
+    }
+        //  col_1 第一卡大banner
+        .col_1 {
+            width: 100%;
+    
+            // 咖啡色塊文字
+            .title_item {
+                width: 25vw;
+                background-color: $content_bg_color;
+                color: $gold_color;
+                // 讓畫面滿版
+                margin: 18.5vw auto;
+                margin-bottom: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                align-content: center;
+    
+                .txt_box {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+    
+                    p {
+                        color: $gold_color;
+                        margin-bottom: 0;
+                    }
+    
+                    h1 {
+                        margin: 0;
+                        letter-spacing: 0.2vw;
+                        color: $gold_color;
+                        text-shadow: var(--txt-shadow);
+                        font-size: var(--title-E--txt--p);
+                        font-family: $en_font_family;
+                    }
+                }
+    
+                // 設定區塊
+                .img_box {
+                    display: flex;
+                    justify-content: center;
+    
+                    // 右邊線
+                    .line_box {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: flex-end;
+                        margin: 1vw;
+    
+                        // 上線
+                        .line:nth-child(1) {
+                            width: var(--line-top-width);
+                            height: var(--line-height);
+                            background: var(--line);
+                            margin: 0 0 0.2vw 0;
+                        }
+    
+                        // 下線
+                        .line:nth-child(2) {
+                            width: var(--line-bottom-width);
+                            height: var(--line-height);
+                            background: var(--line);
+                            top: 2vw;
+                        }
+                    }
+    
+                    // 菱形
+                    .square {
+                        // 菱形大小
+                        padding: 1vw 0;
+                        width: var(--square-line-width);
+                    }
+    
+                    // 左邊線
+                    .line_box:nth-child(3) {
+                        align-items: flex-start;
+                    }
+                }
+            }
+    
+            // CLASSIC ART
+            .txt_item {
+                padding: 5% 0 0vw 4%;
+                position: relative;
+    
+                svg {
+                    position: absolute;
+                    left: -3%;
+                    bottom: 20%;
+                    width: 22%;
+                    height: 91%;
+    
+                    // 線圖 菱形
+                    .box {
+                        top: -33%;
+                        left: -0.5%;
+                    }
+    
+                    // 第一圖 
+                    .box:nth-child(1) {
+                        position: absolute;
+                        transform: rotate(173deg);
+                        width: var(--square-line-width);
+                        transform-box: fill-box;
+                        transform-origin: center;
+                        animation: rotate 10s linear 4.5s infinite;
+    
+                        @keyframes rotate {
+                            100% {
+                                transform: rotate(360deg);
+                            }
+                        }
+    
+                        .square1 {
+                            stroke-dashoffset: 2000;
+                            stroke-dasharray: 2000;
+                            transform-box: fill-box;
+                            transform-origin: center;
+                            transform: rotate(43deg);
+                            animation: drawSquare 8s linear forwards;
+    
+                            @keyframes drawSquare {
+                                0% {
+                                    stroke-dashoffset: 2000;
+                                    stroke-dasharray: 2000;
+                                }
+    
+                                100% {
+                                    stroke-dashoffset: 0;
+                                }
+                            }
+                        }
+                    }
+    
+                    // 第二圖 
+                    .box:nth-child(2) {
+                        position: absolute;
+                        transform: rotate(97deg);
+                        width: var(--square-line-width);
+                        // top: -35%;
+                        transform-box: fill-box;
+                        transform-origin: center;
+                        animation: rotate 20s linear 6s infinite;
+    
+                        @keyframes rotate {
+                            100% {
+                                transform: rotate(360deg);
+                            }
+                        }
+    
+                        .square2 {
+                            stroke-dashoffset: 2000;
+                            stroke-dasharray: 2000;
+                            transform-box: fill-box;
+                            transform-origin: center;
+                            transform: rotate(56deg);
+                            animation: drawSquare 8s linear 2s forwards;
+    
+                            @keyframes drawSquare {
+                                0% {
+                                    stroke-dashoffset: 2000;
+                                    stroke-dasharray: 2000;
+                                }
+    
+                                100% {
+                                    stroke-dashoffset: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+    
+                // 文字
+                .txt_box {
+                    width: 40%;
+    
+                    // 跟菱形對齊
+                    h2 {
+                        font-size: var(--title-E--txt--p);
+                        font-family: $en_font_family;
+                        color: $white_color;
+                        margin-left: 2.5vw;
+                        letter-spacing: 0.2vw;
+                        margin-bottom: 0;
+                        // 不夠長??
+    
+                    }
+    
+                    p {
+                        margin-left: 2.5vw;
+                    }
+                }
+    
+            }
+        }
+}
