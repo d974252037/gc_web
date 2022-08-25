@@ -136,3 +136,113 @@ function pageTitleIn(page){
 pageTitleIn("second")
 pageTitleIn("third")
 // page title in
+
+// second-page-right in
+
+function seondPageRight(){
+    let gg = gsap.timeline({
+        scrollTrigger:{
+            trigger:`.home-second-page-top`,
+            start:"top bottom"
+        }
+    })
+    gg.fromTo(".home-second-page-bottom-right > svg polyline",{
+        strokeDashoffset: 2000,
+        strokeDasharray: 2000
+    },{
+        strokeDashoffset: 500,
+        duration:4,
+    }).fromTo(".home-second-page-bottom-right-para > h3",{
+        opacity:0,
+        y:30,
+    },{
+        y:0,
+        opacity:1,
+        duration:1.2
+    },"<+3").fromTo(".home-second-page-bottom-right-para > svg",{
+        opacity:0,
+        y:30
+    },{
+        y:0,
+        opacity:1,
+        duration:1.2
+    },"<+0.8").fromTo(".home-second-page-bottom-right-para > svg line",{
+        strokeDashoffset: 2000,
+        strokeDasharray: 2000
+    },{
+        strokeDashoffset: 1900,
+        duration:1.2,
+    },"<+1").fromTo(".home-second-page-bottom-right-para p",{
+        opacity:0,
+        y:30
+    },{
+        y:0,
+        opacity:1,
+        duration:1.2
+    },"<").fromTo(".home-second-page-bottom-right-para .readmore",{
+        opacity:0,
+        y:30
+    },{
+        y:0,
+        opacity:1,
+        duration:1.2
+    },"<")
+    let gg2 = gsap.timeline({
+        scrollTrigger:{
+            trigger:`.home-second-page-top`,
+            start:"top bottom",
+            toggleActions:"play none none reverse"
+        }
+    })
+    gg2.fromTo(".home-first-page-shadow",{
+      
+    },{
+        duration:0.3,
+        opacity:0,
+        height:0
+    },"<")
+}
+seondPageRight()
+
+
+
+// second-page-right in
+
+// waveline
+const path = document.querySelectorAll(".home-third-page-bottom li svg path")
+
+function waveLine(){
+let string = `M0 10 Q40 15 80 10 120 5 160 10 200 15 240 10 280 5 320 10 360 15 400 10 440 5 480 10 520 15 560 10 600 5 640 10 680 15 720 10 760 5 800 10 840 15 880 10 920 5 960 10 1000 15 1040 10 1080 5 1120 10 1160 15 1200 10`
+let stArr = string.split(" ")
+let gg = gsap.timeline();
+
+    setInterval(()=>{
+        let stringAfter = [];
+        stArr.forEach((item)=>{
+            let random = parseInt(Math.random()*5)
+            item = parseInt(item)
+            // for(let x = 0 ; x < item+random )
+            item = item+random
+            
+            stringAfter.push(item)
+        })
+        stringAfter[0] = `M0`
+        stringAfter[2] = `Q40`
+        stringAfter[61] = `10`
+        path.forEach((i)=>{
+            i.setAttribute("d",`${stringAfter}`)
+         })
+    
+        // console.log(stArr)
+        stringAfter = stArr.join()
+        // console.log(stringAfter)
+        
+    },100)
+  
+}
+
+waveLine()
+
+
+
+// waveline

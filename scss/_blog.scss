@@ -1,8 +1,10 @@
 .blog{
+
+ 
     .first-page{
         display: flex;
         flex-direction: column;
-       
+ 
         width: 100%;
         height: 100vh;
         img{
@@ -83,7 +85,7 @@
             .g2{
                 transform-box: fill-box;
                 transform-origin: center;
-                animation: rotate 20s linear 6s infinite;
+                animation: rotate 10s linear 4.5s infinite;
                 .square2{
                     stroke-dashoffset: 2000;
                     stroke-dasharray: 2000;
@@ -97,11 +99,12 @@
         }
         }
         &-shadow{
-            position: absolute;
+            position: fixed;
             width: 100%;
             height: 20vw;
             background-image: linear-gradient(180deg,transparent 0% ,rgba(0, 0, 0, 0.015) 3% , rgba(0, 0, 0, 0.055) 5%, rgba(0, 0, 0, 0.805) 100%);
             bottom: 0;
+            left: 0;
             z-index: 10;
         }
     }
@@ -174,6 +177,7 @@
             height: 90%;
             position: relative;
             img{
+                cursor: pointer;
                 border-radius: 40px 0 40px 0;
                 width: 50%;
                 height: fit-content;
@@ -190,23 +194,27 @@
                     display: flex;
                     flex-direction: column;
                     align-items: center;
+          
                     position: absolute;
-                    left: 18vw;
-                    top: 6vw;
+                    left: 10vw;
+                    top: 5vw;
                     > h3{
-                        letter-spacing: 4px;
-                       font-weight: 450;
+                   
                        margin-bottom: -0.5vw;
                     }
                     > svg{
                         margin-bottom: 0.5vw;
                     }
+                    a{
+                        height: fit-content;
+                        margin-top: 5vw;
+                    }
                     > p{
-                        letter-spacing: 4px;
+                        width: 47%;
                     }
                     .readmore{
                         display: flex;
-                        margin-top: 6vw;
+              
                         cursor: pointer;
                         p,h3{
                             color: $gold_color;
@@ -235,12 +243,13 @@
             width: 100%;
             height: 30%;
             padding: 4vw 0 4vw;
-            border-bottom: 1px solid $gold_color;
+            border-bottom: 1px solid $gold_color_opacity;
             &-left{
                 margin-right: 5vw;
                 width: 31%;
                 height: 100%;
                 img{
+                    cursor: pointer;
                     border-radius: 40px 0 40px 0;
                     width: 100%;
                     height: 100%;
@@ -250,18 +259,18 @@
             &-right{
                 width: 70%;
                 > h3{
-                    font-weight: 450;
                     margin-bottom: 2vw;
-                    letter-spacing: 4px;
+                    height: 30px;
                 }
                 > p{
-                    letter-spacing: 4px;
+                    height: 20%;
                 }
                 .readmore{
                     display: flex;
-                   
+                   width: 100%;
+                   height: 60%;
                     justify-content: flex-end;
-                    margin-top: 6vw;
+                    align-items: flex-end;
                     cursor: pointer;
                    
                     p,h3{
@@ -272,11 +281,13 @@
                         transform: scale(0.8);
                         margin: 0 0.5vw ;
                     }
-                    &:hover .arrow{
-                        animation: arrow 2.5s ease-in-out infinite;
-                    }
+                   
                 }
             }
+            &:hover .arrow{
+                animation: arrow 2.5s ease-in-out infinite;
+            }
+           
         }
         
     }
