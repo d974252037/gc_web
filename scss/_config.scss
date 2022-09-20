@@ -1,5 +1,5 @@
 @mixin tablet {
-  @media (max-width: 800px) {
+  @media (max-width: 920px) {
       @content;
   }
 }
@@ -7,12 +7,13 @@
 @mixin mobile {
   @media (max-width: 500px) {
       @content;
+      color: rgb(8, 8, 8);
   }
 }
 
 $white_color: #fff;
 $gold_color: #dcb078;
-
+$gold_color_opacity:#dcb17878;
 //-- banner 底色 --
 $banner_bg_color: #271c1be0;
 //-- 內容 遮罩底色 --
@@ -31,18 +32,20 @@ $en_font_family:'Playfair Display', serif;
 $big_font_size: 42px;
 
 //-- 大字字級(英文) --
-$big_font_size: 53px;
+$en_big_font_size: 53px;
 
 //-- 內文字級 --
 $content_font_size: 15px;
 
 body{
   margin: 0;
+  
+
 }
 
 //-- 標題 --
 h1,h2,h3,h4,h5{
-  font-family: $title_font_family;
+  font-family: $title_font_family; 
   color: $gold_color;
 }
 
@@ -56,12 +59,14 @@ p{
   color: $white_color;
 }
 
+
 .w-100{
   width: 100%;
 }
 
 
 //-- 英文字型 --
+
 .en_family{
   font-family: $en_font_family;
 }
@@ -74,6 +79,11 @@ p{
     width: 100%;
     padding: 2vw 5vw 0vw 5vw;
     justify-content: space-between;
+   
+    z-index: 20;
+   
+    background-image: linear-gradient(180deg,rgba(0, 0, 0, 0.805) 0%,rgba(0, 0, 0, 0.629) 5% ,transparent 100%);
+
 
     .hamburger{
       display: none;
@@ -88,69 +98,96 @@ p{
       }
     }
 
+
     .logo_box{
       img{
-        width: 165px;
+        width: 7.85vw;
       }
     }
 
     .list_box{
       display: flex;
-
+   
       a.ch_text{
         color: $white_color;
         writing-mode: tb;
-        font-size: 18px;
+        font-size: 0.95vw;
         letter-spacing: 0.3vw;
         text-decoration: none;
-        padding: 0 0.9vw;
+        padding: 0 0.3vw 0 0.9vw;
         font-family: $title_font_family;
         font-weight: 300;
-  
+        transition:0.5s;
+        
+        position: relative;
        .en_text{
         font-family: monospace;
         color: $white_color;
         writing-mode: tb;
-        font-size: 12px;
+        font-size: 0.6vw;
         letter-spacing: 0.1vw;
         font-weight: 200;
         display: block;
+        transition: 0.5s;
        }
+       
+        &:hover{
+          transform: translateY(15px);
+          
+        }
+    
      }
+    
     }
-   
+    
    @include tablet{
     align-items: center;
-
+      
      .hamburger{
        display: inline-block;
        z-index: 110;
      }
+    
      .list_box{
       position: fixed;
+      flex-direction: column;
       width: 100%;
-      height: 100%;
+      height: 100vh;
+      height: calc(var(--vh, 1vh) * 100);
       justify-content: center;
       align-items: center;
       top: 0;
       left: 100%;
+     
       background-color: #271c1be0;
       backdrop-filter: blur(15px);
       z-index: 100;
       //transition: all 1s;
-
+      & :not(:last-child){
+        margin-bottom: 10vw;
+      }
 
        a.ch_text{
+        writing-mode: horizontal-tb;
         font-size: 22px;
         letter-spacing: .5vw;
-        padding: 0 3vw;
+        padding: 0;
+        padding-bottom: 2vw;
+        .en_text{
+          writing-mode: horizontal-tb;
+         }
+         &::after{
+          display: none;
+         }
        }
+       
      }
    }
 
    .logo_box{
       img{
-        width: 150px;
+        width: 8.5vw;
+   
       }
     }
 
@@ -165,11 +202,7 @@ p{
        }
      }
 
-     .logo_box{
-      img{
-        width: 110px;
-      }
-     }
+     
 
      .hamburger{
        padding: 5px;
@@ -194,7 +227,6 @@ p{
      }
    }
 }
-
 
 //-- banner 文字 --
 .banner_box{
@@ -247,14 +279,14 @@ p{
   .title_font{
     font-family: $title_font_family;
     font-weight: 500;
-    font-size: 21px;
+    font-size: 1.1vw;
     letter-spacing: 4px;
     color: $gold_color;
   }
 
   //-- 內文 --
   .p_font{
-    font-size: 15px;
+    font-size: 0.75vw;
     letter-spacing: 4px;
     line-height: 2;
   }
@@ -271,6 +303,8 @@ p{
     font-size: 16px;
     letter-spacing: 4px;
     color: $gold_color;
+  
+    
   }
 
   //-- 內容主標 --
@@ -292,18 +326,24 @@ p{
   letter-spacing: 2px;
 }
 
-
+.tablet{
+    display: none;
+    
+}
 footer{
   text-align: center;
   padding: 30px 0;
   background-color: $footer_color;
-  color: $gold_color;
+  color: #8f734ef9;
 
   span{
     font-family: $content_font_family;
     letter-spacing: 2px;
     padding: 0 10px;
     font-size: 15px;
+    a{
+      color: #d3a8719e;
+    }
   }
 
   @include tablet{
@@ -318,6 +358,450 @@ footer{
   @include mobile{
     span{
       font-size: 3vw;
+    }
+  }
+}
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  background-color: #1b0f08;
+  &-svg{
+     
+      width: 30vw;
+      height: 30vw;
+      svg{
+          margin-left: 8.5vw;
+          margin-top:7.5vw;
+          width: 100%;
+          height: 100%;
+         
+      }
+      .imgBox{
+        position: absolute;
+        height: fit-content;
+        width: 5%;
+        left: 46.2%;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        img{
+            width: 100%;
+        }
+    }
+  }
+ 
+}
+.phone{
+  display: none;
+}
+
+@media all and (max-width:1440px){
+  .menu_box{
+    .logo_box{
+      img{
+        width: 12vw;
+   
+      }
+    }
+    .list_box{
+      a.ch_text{
+        font-size:1.2vw;
+        
+        position: relative;
+       .en_text{
+        font-size: 0.9vw;
+       }
+   
+     }
+    
+    }
+  }
+  
+  .loading{
+    &-svg{
+       
+        width: 45vw;
+        height: 45vw;
+        svg{
+            margin-left: 13.5vw;
+            margin-top:11vw;
+            width: 100%;
+            height: 100%;
+           
+        }
+        .imgBox{
+          position: absolute;
+          height: fit-content;
+          width: 8%;
+          left: 45%;
+          top: 0;
+          bottom: 0;
+          margin: auto 0;
+          img{
+              width: 100%;
+          }
+      }
+    }
+   
+  }
+  footer{
+    display: flex;
+    flex-direction: column;
+    padding: 25px 0;
+    span{
+      letter-spacing: 2px;
+      padding: 0 10px;
+      font-size: 14px;
+    }
+    & :not(:last-child){
+      margin-bottom: 3px;
+    }
+  }
+  .banner_box{
+    .ch_title_font{
+      font-size: 3.4vw;
+      letter-spacing: 10px;
+    }
+  
+    .en_title_font{
+      font-weight: 500;
+      font-size: 3.5vw;
+      letter-spacing: 6px;
+    }
+  
+    .p_font{
+      font-size: 1.2vw;
+      letter-spacing: 3px;
+      line-height: 2.1;
+    }
+  }
+  .news_blog{
+
+    //-- 小主標 --
+    .title_font{
+      font-weight: 500;
+      font-size: 1.3vw;
+      letter-spacing: 4px;
+    }
+  
+    //-- 內文 --
+    .p_font{
+      font-size: 1.1vw;
+      letter-spacing: 4px;
+      line-height: 2sa;
+    }
+  
+    //-- 小字 --
+    .small_p_font{
+      font-size: 10px;
+  
+    }
+  
+    //-- 列表選單字 --
+    .menu_font{
+      font-size: 15px;
+      letter-spacing: 4px;
+    
+      
+    }
+  
+    //-- 內容主標 --
+    .dt_title_font{
+      font-weight: 500;
+      font-size: 30px;
+      letter-spacing: 5px;
+    }
+    
+  }
+
+  @media all and (max-width:920px){
+    .tablet{
+      display:flex;
+      justify-content: space-around;
+      z-index: 16;
+      width: 35vw;
+      position: absolute;
+      right: 3vw;
+      bottom: 0vw;
+      transform: scale(1);
+    a{ 
+        width: 3.5vw;
+        height: 3.5vw;
+        img{
+      
+            opacity: 0.8;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: 0.3s;
+          
+        }
+        svg{
+           display: none;
+        }   
+        &:hover{
+            opacity: 1;
+            transform: scale(1.3);
+        } 
+    }
+    
+
+    }
+  
+    .list_box .logo{
+      width: 35%;
+      position: absolute;
+      left: 5vw;
+      top: 5vw;
+     
+      z-index: -1;
+    }
+    footer{
+      padding: 25px 0;
+      span{
+        letter-spacing: 2px;
+        padding: 0 10px;
+        font-size: 14px;
+      }
+    }
+    .banner_box{
+      .ch_title_font{
+        font-size: 6vw;
+        letter-spacing: 15px;
+      }
+    
+      .en_title_font{
+        font-weight: 500;
+        font-size: 6.3vw;
+        letter-spacing: 8px;
+      }
+    
+      .p_font{
+        font-size: 2.5vw;
+        letter-spacing: 3px;
+        line-height: 2.1;
+      }
+    }
+    .news_blog{
+  
+      //-- 小主標 --
+      .title_font{
+        font-weight: 500;
+        font-size: 3.5vw;
+        letter-spacing: 6px;
+      }
+    
+      //-- 內文 --
+      .p_font{
+        font-size: 2.5vw;
+        letter-spacing: 4px;
+        line-height: 2;
+      }
+    
+      //-- 小字 --
+      .small_p_font{
+        font-size: 18px;
+    
+      }
+    
+      //-- 列表選單字 --
+      .menu_font{
+        font-size: 18px;
+        letter-spacing: 4px;
+      
+        
+      }
+    
+      //-- 內容主標 --
+      .dt_title_font{
+        font-weight: 500;
+        font-size: 3.5vw;
+        letter-spacing: 5px;
+      }
+      
+    }
+    .title_top{
+      .en_txt{
+        font-family: $en_font_family;
+        font-weight: 500;
+        font-size: 60px;
+        line-height: 1.2;
+        letter-spacing: 5px;
+        color: $gold_color;
+      }
+      .ch_txt{
+        font-family: $title_font_family;
+        font-weight: 500;
+        font-size: 26px;
+        letter-spacing: 8px;
+        color: $gold_color;
+      }
+    }
+    .readmore_word{
+      font-family: $en_font_family;
+      font-weight: 300;
+      font-size: 20px;
+      letter-spacing: 2px;
+    }
+  }
+  @media all and (max-width:480px){
+    .menu_box{
+      .logo_box{
+        img{
+          width: 110px;
+     
+        }
+      }
+    }
+    .loading{
+      display: flex;
+      justify-content: center;
+      align-items:center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      width: 100%;
+      height: 100vh;
+      height: calc(var(--vh, 1vh) * 100);
+      background-color: #1b0f08;
+      &-svg{
+         
+          width: 120vw;
+          height: 120vw;
+          svg{
+              margin-left: 29.5vw;
+              margin-top:18.5vw;
+              width: 115%;
+              height: 115%;
+            
+          }
+      }
+      .imgBox{
+        position: absolute;
+        width: 21%;
+        left: 39%;
+    
+    }
+     
+  }
+    .phone{
+      display: block;
+    }
+    .computer{
+      display: none;
+    }
+    .tablet{
+ 
+      width: 45vw;
+
+ 
+    a{ 
+        width: 4.5vw;
+        height: 4.5vw;
+    
+    }
+    
+
+    }
+    footer{
+      padding: 25px 0;
+      color: #8f734ebe;
+      span{
+        letter-spacing: 2px;
+       
+        padding: 0 10px;
+        font-size: 14px;
+      }
+    }
+    .banner_box{
+      .ch_title_font{
+        font-size: 6vw;
+        letter-spacing: 15px;
+      }
+    
+      .en_title_font{
+        font-weight: 500;
+        font-size: 10vw;
+        letter-spacing: 5px;
+      }
+    
+      .p_font{
+        font-size:3.5vw;
+        letter-spacing: 3px;
+        line-height: 2.1;
+      }
+    }
+    .news_blog{
+  
+      //-- 小主標 --
+      .title_font{
+        font-weight: 500;
+        font-size: 5vw;
+        letter-spacing: 6px;
+      }
+    
+      //-- 內文 --
+      .p_font{
+        font-size: 3.85vw;
+        letter-spacing: 4px;
+        line-height: 2;
+      }
+    
+      //-- 小字 --
+      .small_p_font{
+        font-size: 10px;
+    
+      }
+    
+      //-- 列表選單字 --
+      .menu_font{
+        font-size: 13px;
+        letter-spacing: 4px;
+      
+        
+      }
+    
+      //-- 內容主標 --
+      .dt_title_font{
+        font-weight: 500;
+        font-size: 5.5vw;
+        letter-spacing: 5px;
+      }
+      
+    }
+
+    .title_top{
+      .en_txt{
+        font-family: $en_font_family;
+        font-weight: 500;
+        font-size: 35px;
+        line-height: 1.2;
+        letter-spacing: 5px;
+        color: $gold_color;
+      }
+      .ch_txt{
+        font-family: $title_font_family;
+        font-weight: 500;
+        font-size: 17px;
+        letter-spacing: 5px;
+        color: $gold_color;
+      }
+    }
+    .readmore_word{
+      font-family: $en_font_family;
+      font-weight: 300;
+      font-size: 15px;
+      letter-spacing: 2px;
+      
     }
   }
 }
